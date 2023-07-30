@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hockguan/pages/daftar.dart';
+import 'package:flutter/services.dart';
+import 'package:hockguan/pages/hilang.dart';
 import 'pages/login.dart';
 import 'pages/home.dart';
+import 'pages/googlemap.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HilangPage(),
     );
   }
-  }
+}
