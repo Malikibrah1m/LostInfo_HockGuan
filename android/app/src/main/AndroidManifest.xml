@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:label="hockguan"
+        android:label="Lost Info"
         android:name="${applicationName}"
         android:resizeableActivity="false"
         android:icon="@mipmap/ic_launcher">

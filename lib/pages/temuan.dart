@@ -3,6 +3,7 @@ import 'package:hockguan/layouts/user.dart';
 import 'package:hockguan/pages/detail_barang.dart';
 import 'package:hockguan/pages/tambah_barang.dart';
 
+// ignore: unused_import
 import '/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 

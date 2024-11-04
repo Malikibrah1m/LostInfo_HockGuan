@@ -17,7 +17,7 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: double.infinity,
+            // width: double.infinity,
             height: 180,
             color: Colors.blue[400],
             child: Padding(
@@ -30,9 +30,9 @@ class CustomDrawer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'asset/polije.png',
-                        height: 80,
-                        width: 80,
+                        'asset/lost2.png',
+                        height: 60,
+                        width: 60,
                       ),
                       SizedBox(
                         width: 10,
