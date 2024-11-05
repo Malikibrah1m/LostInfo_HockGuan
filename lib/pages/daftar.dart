@@ -255,6 +255,7 @@ class _DaftarPageState extends State<DaftarPage> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueAccent,
                         shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     )),

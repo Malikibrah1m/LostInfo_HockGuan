@@ -132,9 +132,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        shadowColor: Colors.green,
         title: Text(
           'Beranda',
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),

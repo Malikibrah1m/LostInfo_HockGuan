@@ -19,7 +19,7 @@ class DetailBarang extends StatelessWidget {
                 Stack(
                   children: [
                     Container(
-                      height: 50,
+                      height: 70,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -30,7 +30,7 @@ class DetailBarang extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5),
                       child: Container(
                         padding: EdgeInsets.all(20),
-                        height: 70,
+                        height: 80,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),

@@ -11,7 +11,7 @@ class UserLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         shadowColor: Colors.green,
         title: Text(

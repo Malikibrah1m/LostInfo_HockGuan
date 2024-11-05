@@ -134,8 +134,10 @@ class _LoginPageState extends State<LoginPage> {
                           ));
                         },
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueAccent,
                             shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
+                          
                         )),
                         child: Container(
                           alignment: Alignment.center,
