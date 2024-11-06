@@ -44,6 +44,8 @@ class _TemuanPageState extends State<TemuanPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return UserLayout(
       title: 'Barang Temuan',
       children: Stack(
@@ -52,12 +54,12 @@ class _TemuanPageState extends State<TemuanPage> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(size.width * 0.02),
               child: Column(
                 children: [
                   // Pencarian
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(size.width * 0.02),
                     child: TextField(
                       controller: _searchController,
                       decoration: InputDecoration(
@@ -80,7 +82,7 @@ class _TemuanPageState extends State<TemuanPage> {
                       color: Colors.white,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -110,7 +112,7 @@ class _TemuanPageState extends State<TemuanPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: size.height * 0.02),
 
                   // List Barang
                   ListView.builder(
@@ -119,10 +121,10 @@ class _TemuanPageState extends State<TemuanPage> {
                     itemCount: _filteredBarangList().length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.symmetric(vertical: 5),
+                        padding: EdgeInsets.symmetric(vertical: size.height * 0.01),
                         child: Container(
-                          padding: EdgeInsets.all(20),
-                          height: 200,
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          height: size.height * 0.25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
@@ -136,66 +138,67 @@ class _TemuanPageState extends State<TemuanPage> {
                             ],
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(size.width * 0.02),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 150,
-                                  width: 150,
+                                  height: size.height * 0.18,
+                                  width: size.width * 0.35,
                                   child: Image.network(
                                     'https://picsum.photos/seed/picsum/200/300',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(top: 10, left: 10),
-                                  height: 150,
-                                  width: 150,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Nama Barang Temuan',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      InkWell(
-                                        child: Text(
-                                          'Nama Penemu',
+                                SizedBox(width: size.width * 0.03),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.only(top: 10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Nama Barang Temuan',
                                           style: TextStyle(
-                                              color: Colors.blue,
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: size.width * 0.045,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                        onTap: () {},
-                                      ),
-                                      Text('Tanggal ditemukan'),
-                                      InkWell(
-                                        hoverColor: Colors.blue,
-                                        child: Text(
-                                          'Lihat detail',
-                                          style: TextStyle(
+                                        InkWell(
+                                          child: Text(
+                                            'Nama Penemu',
+                                            style: TextStyle(
                                               color: Colors.blue,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 16,
-                                              fontStyle: FontStyle.italic),
+                                            ),
+                                          ),
+                                          onTap: () {},
                                         ),
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                DetailBarang(),
-                                          ));
-                                        },
-                                      ),
-                                    ],
+                                        Text('Tanggal ditemukan'),
+                                        InkWell(
+                                          child: Text(
+                                            'Lihat detail',
+                                            style: TextStyle(
+                                              color: Colors.blue,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: size.width * 0.04,
+                                              fontStyle: FontStyle.italic,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) => DetailBarang(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -208,8 +211,8 @@ class _TemuanPageState extends State<TemuanPage> {
             ),
           ),
           Positioned(
-            bottom: 20,
-            right: 16,
+            bottom: size.height * 0.05,
+            right: size.width * 0.04,
             child: FloatingActionButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(

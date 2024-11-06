@@ -13,15 +13,16 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Drawer(
       child: Column(
         children: [
           Container(
-            // width: double.infinity,
-            height: 180,
+            height: size.height * 0.2,
             color: Colors.blue[400],
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(size.width * 0.02),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,13 +30,14 @@ class CustomDrawer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'asset/lost2.png',
-                        height: 60,
-                        width: 60,
+                      Expanded(
+                        child: Image.asset(
+                          'asset/lost2.png',
+                          height: size.height * 0.07,
+                        ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: size.width * 0.03,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -44,14 +46,18 @@ class CustomDrawer extends StatelessWidget {
                           Text(
                             'Lost Info',
                             style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
+                              fontSize: size.height * 0.025,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: size.height * 0.01),
                           Text(
                             'Platform Informasi Barang Hilang',
-                            style: TextStyle(fontSize: 15, color: Colors.white),
+                            style: TextStyle(
+                              fontSize: size.height * 0.018,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -63,47 +69,73 @@ class CustomDrawer extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
-              padding: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: size.height * 0.015),
               children: [
                 ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text('Beranda', style: TextStyle(fontSize: 17),),
+                  leading: Icon(Icons.home, size: size.width * 0.07),
+                  title: Text(
+                    'Beranda',
+                    style: TextStyle(fontSize: size.height * 0.022),
+                  ),
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage(),));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.do_not_disturb_alt),
-                  title: Text('Barang Hilang', style: TextStyle(fontSize: 17),),
+                  leading: Icon(Icons.do_not_disturb_alt, size: size.width * 0.07),
+                  title: Text(
+                    'Barang Hilang',
+                    style: TextStyle(fontSize: size.height * 0.022),
+                  ),
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HilangPage(),));
-                  },
-                ),
-                 ListTile(
-                  leading: Icon(Icons.archive_outlined),
-                  title: Text('Barang Temuan', style: TextStyle(fontSize: 17),),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TemuanPage(),));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HilangPage()),
+                    );
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.person_outline),
-                  title: Text('Pengaturan Akun', style: TextStyle(fontSize: 17),),
+                  leading: Icon(Icons.archive_outlined, size: size.width * 0.07),
+                  title: Text(
+                    'Barang Temuan',
+                    style: TextStyle(fontSize: size.height * 0.022),
+                  ),
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AkunPage(),));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => TemuanPage()),
+                    );
                   },
                 ),
-                Divider(color: Colors.black, height: 2),
-                SizedBox(height: 20,),
-                 ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('Keluar', style: TextStyle(fontSize: 17),),
+                ListTile(
+                  leading: Icon(Icons.person_outline, size: size.width * 0.07),
+                  title: Text(
+                    'Pengaturan Akun',
+                    style: TextStyle(fontSize: size.height * 0.022),
+                  ),
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginPage(),));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => AkunPage()),
+                    );
+                  },
+                ),
+                Divider(color: Colors.black, height: size.height * 0.002),
+                SizedBox(height: size.height * 0.02),
+                ListTile(
+                  leading: Icon(Icons.logout, size: size.width * 0.07),
+                  title: Text(
+                    'Keluar',
+                    style: TextStyle(fontSize: size.height * 0.022),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
                   },
                 ),
               ],
-            ) )
+            ),
+          ),
         ],
       ),
     );

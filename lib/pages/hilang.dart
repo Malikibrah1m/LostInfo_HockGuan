@@ -41,6 +41,8 @@ class _HilangPageState extends State<HilangPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return UserLayout(
       title: 'Barang Hilang',
       children: Stack(
@@ -49,12 +51,12 @@ class _HilangPageState extends State<HilangPage> {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(size.width * 0.02),
               child: Column(
                 children: [
                   // Pencarian
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(size.width * 0.02),
                     child: TextField(
                       controller: _searchController,
                       decoration: InputDecoration(
@@ -77,7 +79,7 @@ class _HilangPageState extends State<HilangPage> {
                       color: Colors.white,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -107,7 +109,7 @@ class _HilangPageState extends State<HilangPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: size.height * 0.02),
 
                   // List Barang
                   ListView.builder(
@@ -116,75 +118,76 @@ class _HilangPageState extends State<HilangPage> {
                     itemCount: _filteredBarangList().length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.symmetric(vertical: 5),
+                        padding: EdgeInsets.symmetric(vertical: size.height * 0.01),
                         child: Container(
-                          padding: EdgeInsets.all(20),
-                          height: 200,
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          height: size.height * 0.25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.white
-                            ),
+                            color: Colors.white,
+                          ),
                           child: Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(size.width * 0.02),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 150,
-                                  width: 150,
+                                  height: size.height * 0.18,
+                                  width: size.width * 0.35,
                                   child: Image.network(
                                     'https://picsum.photos/seed/picsum/200/300',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(top: 10, left: 10),
-                                  height: 150,
-                                  width: 150,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Nama Barang Hilang',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      InkWell(
-                                        child: Text(
-                                          'Nama Pemilik',
+                                SizedBox(width: size.width * 0.03),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.only(top: 10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Nama Barang Hilang',
                                           style: TextStyle(
-                                              color: Colors.blue,
-                                              fontWeight: FontWeight.bold),
+                                            fontSize: size.width * 0.045,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                        onTap: () {},
-                                      ),
-                                      Text('Tanggal Hilang'),
-                                      InkWell(
-                                        hoverColor: Colors.blue,
-                                        child: Text(
-                                          'Lihat detail',
-                                          style: TextStyle(
+                                        InkWell(
+                                          child: Text(
+                                            'Nama Pemilik',
+                                            style: TextStyle(
                                               color: Colors.blue,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 16,
-                                              fontStyle: FontStyle.italic),
+                                            ),
+                                          ),
+                                          onTap: () {},
                                         ),
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                DetailBarang(),
-                                          ));
-                                        },
-                                      ),
-                                    ],
+                                        Text('Tanggal Hilang'),
+                                        InkWell(
+                                          child: Text(
+                                            'Lihat detail',
+                                            style: TextStyle(
+                                              color: Colors.blue,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: size.width * 0.04,
+                                              fontStyle: FontStyle.italic,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) => DetailBarang(),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -197,8 +200,8 @@ class _HilangPageState extends State<HilangPage> {
             ),
           ),
           Positioned(
-            bottom: 20,
-            right: 16,
+            bottom: size.height * 0.05,
+            right: size.width * 0.04,
             child: FloatingActionButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(

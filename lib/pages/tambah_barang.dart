@@ -18,7 +18,7 @@ class TambahBarang extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 50,
+                  height: 70,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -29,7 +29,7 @@ class TambahBarang extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 5),
                   child: Container(
                     padding: EdgeInsets.all(20),
-                    height: 70,
+                    height: 80,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -252,7 +252,7 @@ class TambahBarang extends StatelessWidget {
                     color: Colors.grey[200],
                     child: Center(
                       child: Image.asset(
-                        'asset/polije.png',
+                        'asset/lost2.png',
                         height: 150,
                         width: 150,
                       ),
